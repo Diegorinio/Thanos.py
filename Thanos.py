@@ -30,8 +30,7 @@ def Snap():
         except IsADirectoryError:
             pass
         except OSError:
-            print('File ', x,' not found')
-            pass
+            print('File ', x,' not found or cannot access')
         except IndexError:
             print('Index Error!, propably not enough files')
     print('Perfectly balanced, as all things should be')
@@ -39,6 +38,7 @@ def Snap():
 
 while True:
     try:
+        print('THANOS.py')
         print('WARNING!')
         print('Thanos.py will delete half of your files in actual directory: ', os.getcwd())
         will_you_snap = input()
@@ -46,5 +46,9 @@ while True:
             Snap()
         elif will_you_snap == 'n':
             quit()
+        else:
+            print("type 'y' or 'n'")
     except ValueError:
         print('Please decide')
+    except KeyboardInterrupt:
+        quit()
